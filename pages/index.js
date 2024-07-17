@@ -14,11 +14,11 @@ const Index = () => {
       const thumbnailBaseUrl = "http://img.youtube.com/vi/";
 
       const options = [
-        { resolution: "HD (1280x720)", code: "maxresdefault" },
-        { resolution: "SD (640x480)", code: "sddefault" },
-        { resolution: "Normal (480x360)", code: "hqdefault" },
-        { resolution: "Medium (320x180)", code: "mqdefault" },
-        { resolution: "Low (120x90)", code: "default" },
+        { resolution: "HD Image (1280x720)", code: "maxresdefault" },
+        { resolution: "SD Image (640x480)", code: "sddefault" },
+        { resolution: "Normal Image (480x360)", code: "hqdefault" },
+        { resolution: "Medium Image (320x180)", code: "mqdefault" },
+        { resolution: "Low Image(120x90)", code: "default" },
       ];
 
       const thumbnailOptions = options.map((option) => ({
@@ -39,8 +39,9 @@ const Index = () => {
         <h1 className="text-3xl font-bold mb-2">
           Youtube Thumbnail Downloader
         </h1>
-        <p className="text-gray-600">
-          Download high-quality thumbnails from YouTube videos.
+        <p className="text-gray-600 px-4">
+        Download high-quality YouTube thumbnails for free! Simply paste the video URL below 
+        <br/>and click "Get Thumbnail Image" to instantly save your thumbnails.
         </p>
       </header>
       <div className="text-center">
@@ -51,26 +52,33 @@ const Index = () => {
           value={videoURL}
           onChange={(e) => setVideoURL(e.target.value)}
         />
+        
         <button
-          className="btn-blue mt-2"
+          className="btn-red mt-2"
           onClick={() => getYouTubeThumbnail(videoURL)}
         >
-          Download Thumbnails
+         Get Thumbnail Images
         </button>
       </div>
       {thumbnailOptions.length > 0 && (
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-4">Thumbnail Options</h2>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
             {thumbnailOptions.map((option, index) => (
               <div key={index} className="thumbnail-option">
-                <img src={option.url} alt={`Thumbnail ${index + 1}`} />
+                <div>{option.resolution} </div>
                 <button
                   className="btn-blue mt-2"
                   onClick={() => copy(option.url)}
                 >
                   Copy Image URL
                 </button>
+
+              <div class="flex justify-center items-center pt-2"> 
+                     <img src={option.url} alt={`Thumbnail ${index + 1}`} />
+                  </div> 
+                         
+               
               </div>
             ))}
           </div>
