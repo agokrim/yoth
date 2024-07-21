@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 class MyDocument extends Document {
   render() {
@@ -26,8 +27,10 @@ class MyDocument extends Document {
           <link rel="manifest" href="/favicon/site.webmanifest" />
         </Head>
         <body>
+      
           <Main />
           <NextScript />
+          <GoogleAnalytics gaId="G-D466SRX2FY" />
           <Analytics />
         </body>
       </Html>
