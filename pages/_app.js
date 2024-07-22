@@ -1,6 +1,9 @@
 import "../styles/index.css";
 import { Fragment } from "react";
 import { DefaultSeo } from "next-seo";
+import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,6 +20,8 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       <Component {...pageProps} />
+      <GoogleAnalytics gaId="G-D466SRX2FY" />
+      <Analytics />
     </Fragment>
   );
 }
