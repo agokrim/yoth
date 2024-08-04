@@ -1,5 +1,5 @@
 import { useState } from "react";
-import copy from "copy-to-clipboard";
+
 
 const Index = () => {
   const [videoURL, setVideoURL] = useState("");
